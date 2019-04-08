@@ -14,6 +14,7 @@ namespace PhotoEditor
     {
         public newPhotoForm originalPhoto;
         public newPhotoForm newPhoto;
+        public ColorEditingForm colorEditorForm;
         List<ToolTip> ToolTips; 
         List<Button> buttons; 
         public Painter painter;
@@ -156,6 +157,18 @@ namespace PhotoEditor
                     Info.newPhoto.Photo.Save(currentPath);
                 }
             }
+        }
+
+        public void transparancyChange()
+        {
+            this.painter.changeTransparancy(colorEditorForm.getTrancparancyPosition());
+            newPhoto.setPhoto(Info.newPhoto.Photo);
+            return;
+        }
+
+        private void colorEditionButton_Click(object sender, EventArgs e)
+        {
+            colorEditorForm = new ColorEditingForm();
         }
     }
 }

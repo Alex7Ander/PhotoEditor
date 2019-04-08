@@ -21,6 +21,8 @@ namespace PhotoEditor
         public static bool originalPhotoFormIsShown;
         public static bool newphotoFormIsShown;
 
+        public static int transparancy;
+
         static Info()
         {
             originalPhotoFormIsShown = false;

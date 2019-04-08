@@ -93,6 +93,7 @@
             this.colorEditionButton.Size = new System.Drawing.Size(75, 71);
             this.colorEditionButton.TabIndex = 7;
             this.colorEditionButton.UseVisualStyleBackColor = true;
+            this.colorEditionButton.Click += new System.EventHandler(this.colorEditionButton_Click);
             // 
             // removeButton
             // 

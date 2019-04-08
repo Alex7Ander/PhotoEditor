@@ -9,6 +9,13 @@ namespace PhotoEditor
 {
     public class Painter
     {
+        public delegate Bitmap ParametrNewState(int value);
+        ParametrNewState parametrChanging;
+
+        public void regParametrNewState(ParametrNewState newState)
+        {
+            parametrChanging = newState;
+        }
 
         private Bitmap Image;
 
@@ -52,6 +59,8 @@ namespace PhotoEditor
                     int R = (int)pixel.R;
                     int G = (int)pixel.G; // зеленый
                     int B = (int)pixel.B; // синий
+                    int A = (int)pixel.A;
+                    A = A + transparancyValue * 128 / 100;
                     trImage.SetPixel(i, j, Color.FromArgb(transparancyValue, R, G, B));
                 }
             }
