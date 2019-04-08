@@ -1,0 +1,12 @@
+N:\___Проекты\C#\ColorToBW_2\PhotoEditor\PhotoEditor\PhotoEditor\bin\Debug\PhotoEditor.exe.config
+N:\___Проекты\C#\ColorToBW_2\PhotoEditor\PhotoEditor\PhotoEditor\bin\Debug\PhotoEditor.exe
+N:\___Проекты\C#\ColorToBW_2\PhotoEditor\PhotoEditor\PhotoEditor\bin\Debug\PhotoEditor.pdb
+N:\___Проекты\C#\ColorToBW_2\PhotoEditor\PhotoEditor\PhotoEditor\obj\Debug\PhotoEditor.csprojAssemblyReference.cache
+N:\___Проекты\C#\ColorToBW_2\PhotoEditor\PhotoEditor\PhotoEditor\obj\Debug\PhotoEditor.Properties.Resources.resources
+N:\___Проекты\C#\ColorToBW_2\PhotoEditor\PhotoEditor\PhotoEditor\obj\Debug\PhotoEditor.csproj.GenerateResource.cache
+N:\___Проекты\C#\ColorToBW_2\PhotoEditor\PhotoEditor\PhotoEditor\obj\Debug\PhotoEditor.csproj.CoreCompileInputs.cache
+N:\___Проекты\C#\ColorToBW_2\PhotoEditor\PhotoEditor\PhotoEditor\obj\Debug\PhotoEditor.exe
+N:\___Проекты\C#\ColorToBW_2\PhotoEditor\PhotoEditor\PhotoEditor\obj\Debug\PhotoEditor.pdb
+N:\___Проекты\C#\ColorToBW_2\PhotoEditor\PhotoEditor\PhotoEditor\obj\Debug\PhotoEditor.originalPhotoForm.resources
+N:\___Проекты\C#\ColorToBW_2\PhotoEditor\PhotoEditor\PhotoEditor\obj\Debug\PhotoEditor.MainForm.resources
+N:\___Проекты\C#\ColorToBW_2\PhotoEditor\PhotoEditor\PhotoEditor\obj\Debug\PhotoEditor.newPhotoForm.resources
