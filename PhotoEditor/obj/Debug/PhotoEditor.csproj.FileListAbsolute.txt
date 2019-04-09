@@ -20,3 +20,14 @@ N:\___Проекты\C#\PhotoEditor\PhotoEditor\obj\Debug\PhotoEditor.csproj.Gen
 N:\___Проекты\C#\PhotoEditor\PhotoEditor\obj\Debug\PhotoEditor.csproj.CoreCompileInputs.cache
 N:\___Проекты\C#\PhotoEditor\PhotoEditor\obj\Debug\PhotoEditor.exe
 N:\___Проекты\C#\PhotoEditor\PhotoEditor\obj\Debug\PhotoEditor.pdb
+C:\Users\Alex\Desktop\PE\PhotoEditor\PhotoEditor\bin\Debug\PhotoEditor.exe.config
+C:\Users\Alex\Desktop\PE\PhotoEditor\PhotoEditor\obj\Debug\PhotoEditor.exe
+C:\Users\Alex\Desktop\PE\PhotoEditor\PhotoEditor\obj\Debug\PhotoEditor.pdb
+C:\Users\Alex\Desktop\PE\PhotoEditor\PhotoEditor\obj\Debug\PhotoEditor.csprojResolveAssemblyReference.cache
+C:\Users\Alex\Desktop\PE\PhotoEditor\PhotoEditor\obj\Debug\PhotoEditor.ColorEditingForm.resources
+C:\Users\Alex\Desktop\PE\PhotoEditor\PhotoEditor\obj\Debug\PhotoEditor.MainForm.resources
+C:\Users\Alex\Desktop\PE\PhotoEditor\PhotoEditor\obj\Debug\PhotoEditor.Properties.Resources.resources
+C:\Users\Alex\Desktop\PE\PhotoEditor\PhotoEditor\obj\Debug\PhotoEditor.csproj.GenerateResource.Cache
+C:\Users\Alex\Desktop\PE\PhotoEditor\PhotoEditor\obj\Debug\PhotoEditor.PhotoForm.resources
+C:\Users\Alex\Desktop\PE\PhotoEditor\PhotoEditor\bin\Debug\PhotoEditor.exe
+C:\Users\Alex\Desktop\PE\PhotoEditor\PhotoEditor\bin\Debug\PhotoEditor.pdb

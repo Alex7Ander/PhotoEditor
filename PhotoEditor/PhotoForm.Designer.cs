@@ -1,6 +1,6 @@
 ﻿namespace PhotoEditor
 {
-    partial class newPhotoForm
+    partial class PhotoForm
     {
         /// <summary>
         /// Required designer variable.
@@ -40,13 +40,14 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // newPhotoForm
+            // PhotoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.pictureBox1);
-            this.Name = "newPhotoForm";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Name = "PhotoForm";
             this.Text = "newPhotoForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.newPhotoForm_FormClosing);
             this.Shown += new System.EventHandler(this.newPhotoForm_Shown);

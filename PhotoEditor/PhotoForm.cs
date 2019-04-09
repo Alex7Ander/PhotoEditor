@@ -10,17 +10,17 @@ using System.Windows.Forms;
 
 namespace PhotoEditor
 {
-    public partial class newPhotoForm : Form
+    public partial class PhotoForm : Form
     {
         private string photoType;
 
-        public newPhotoForm()
+        public PhotoForm()
         {
             InitializeComponent();
             Bind();
         }
 
-        public newPhotoForm(string type)
+        public PhotoForm(string type)
         {
             InitializeComponent();
             this.photoType = type;
@@ -49,6 +49,7 @@ namespace PhotoEditor
             Resizer resizer = new Resizer();
             var width = resizer.getSizeX(Info.newPhoto.Photo.Width, 20);
             var height = resizer.getSizeY(Info.newPhoto.Photo.Height, 20);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             this.Width = width+25;
             this.Height = height+50;

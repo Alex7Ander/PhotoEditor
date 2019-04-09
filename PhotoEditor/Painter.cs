@@ -7,65 +7,50 @@ using System.Drawing;
 
 namespace PhotoEditor
 {
-    public class Painter
+    public static class Painter
     {
-        public delegate Bitmap ParametrNewState(int value);
-        ParametrNewState parametrChanging;
+        private static Bitmap Image;
 
-        public void regParametrNewState(ParametrNewState newState)
+        static Painter()
         {
-            parametrChanging = newState;
+            //
         }
 
-        private Bitmap Image;
-
-        public Painter(ref Bitmap anyImage)
+        public static void transformColorToBW(ref Bitmap Image)
         {
-            this.Image = anyImage;
-        }
-
-        public Painter(ref photo anyPhoto)
-        {
-            this.Image = anyPhoto.Photo;
-        }
-
-        public Bitmap transformColorToBW()
-        {
-            Bitmap trImage = new Bitmap(this.Image.Width, this.Image.Height);
-            for (int j = 0; j < trImage.Height; j++)
+            for (int j = 0; j < Image.Height; j++)
             {
-                for (int i = 0; i < trImage.Width; i++)
+                for (int i = 0; i < Image.Width; i++)
                 {
-                    var pixel = this.Image.GetPixel(i, j); // получаем (i, j) пиксель
+                    var pixel = Image.GetPixel(i, j); // получаем (i, j) пиксель
                     int R = (int)pixel.R;
                     int G = (int)pixel.G; // зеленый
                     int B = (int)pixel.B; // синий
                     int average = (R + G + B) / 3;
-                    trImage.SetPixel(i, j, Color.FromArgb(average, average, average));
+                    Image.SetPixel(i, j, Color.FromArgb(average, average, average));
                 }
             }
-            this.Image = trImage;
-            return trImage;
+            return;
         }
 
-        public Bitmap changeTransparancy(int transparancyValue)
+        public static void changeTransparancy(ref Bitmap Image, int transparancyValue)
         {
-            Bitmap trImage = new Bitmap(this.Image.Width, this.Image.Height);
+            Bitmap trImage = new Bitmap(Image.Width, Image.Height);
             for (int j = 0; j < trImage.Height; j++)
             {
                 for (int i = 0; i < trImage.Width; i++)
                 {
-                    var pixel = this.Image.GetPixel(i, j); // получаем (i, j) пиксель
+                    var pixel = Image.GetPixel(i, j); // получаем (i, j) пиксель
                     int R = (int)pixel.R;
-                    int G = (int)pixel.G; // зеленый
-                    int B = (int)pixel.B; // синий
-                    int A = (int)pixel.A;
-                    A = A + transparancyValue * 128 / 100;
+                    int G = (int)pixel.G; 
+                    int B = (int)pixel.B; 
+                    //int A = (int)pixel.A;
+                    //A = A + transparancyValue * 128 / 100;
                     trImage.SetPixel(i, j, Color.FromArgb(transparancyValue, R, G, B));
                 }
             }
-            this.Image = trImage;
-            return trImage;
+            Image = trImage;
+            return;
         }
     }
 }

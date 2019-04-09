@@ -20,6 +20,7 @@ namespace PhotoEditor
         public static photo newPhoto;
         public static bool originalPhotoFormIsShown;
         public static bool newphotoFormIsShown;
+        public static bool colorEditingFormIsShown;
 
         public static int transparancy;
 

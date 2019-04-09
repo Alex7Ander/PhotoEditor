@@ -12,12 +12,11 @@ namespace PhotoEditor
 {
     public partial class MainForm : Form
     {
-        public newPhotoForm originalPhoto;
-        public newPhotoForm newPhoto;
+        public PhotoForm originalPhotoForm;
+        public PhotoForm newPhotoForm;
         public ColorEditingForm colorEditorForm;
         List<ToolTip> ToolTips; 
         List<Button> buttons; 
-        public Painter painter;
         public MainForm()
         {
             InitializeComponent();
@@ -66,17 +65,16 @@ namespace PhotoEditor
                 Info.originalPhoto.Photo = new Bitmap(currentPath);
                 Info.newPhoto.Photo = new Bitmap(currentPath);
 
-                painter = new Painter(ref Info.newPhoto);
                 for (int i=0; i<9; i++) buttons[i].Enabled = true;
 
                 if (Info.newphotoFormIsShown == false)
                 {
-                    newPhoto = new newPhotoForm("new");
-                    newPhoto.Text = "Новое фото";
-                    newPhoto.Show();
+                    newPhotoForm = new PhotoForm("new");
+                    newPhotoForm.Text = "Новое фото";
+                    newPhotoForm.Show();
                     Info.newphotoFormIsShown = true;
                 }
-                newPhoto.setPhoto(Info.newPhoto.Photo);
+                newPhotoForm.setPhoto(Info.newPhoto.Photo);
             }
         }
 
@@ -96,44 +94,61 @@ namespace PhotoEditor
         {
             if (Info.originalPhotoFormIsShown == false)
             {
-                originalPhoto = new newPhotoForm("original");
-                originalPhoto.Text = "Исходное фото";
-                originalPhoto.Show();
-                Info.originalPhotoFormIsShown = true;
+                originalPhotoForm.Close();
+                Info.originalPhotoFormIsShown = false;
             }
             else
             {
-                originalPhoto.Close();
-                Info.originalPhotoFormIsShown = false;
+                originalPhotoForm = new PhotoForm("original");
+                originalPhotoForm.Text = "Исходное фото";
+                originalPhotoForm.Show();
+                Info.originalPhotoFormIsShown = true;
             }
         }
 
         private void newPictureButton_Click(object sender, EventArgs e)
         {
-            if (Info.newphotoFormIsShown == false)
+            if (Info.newphotoFormIsShown)
             {
-                newPhoto = new newPhotoForm("new");
-                newPhoto.Text = "Новое фото";
-                newPhoto.Show();
-                Info.newphotoFormIsShown = true;
+                newPhotoForm.Close();
+                Info.newphotoFormIsShown = false;
             }
             else
             {
-                newPhoto.Close();
-                Info.newphotoFormIsShown = false;
+                newPhotoForm = new PhotoForm("new");
+                newPhotoForm.Text = "Новое фото";
+                newPhotoForm.Show();
+                Info.newphotoFormIsShown = true;
+            }
+        }
+
+        private void colorEditionButton_Click(object sender, EventArgs e)
+        {
+            if (Info.colorEditingFormIsShown)
+            {
+                colorEditorForm.Close();
+                Info.colorEditingFormIsShown = false;
+            }
+            else
+            {
+                colorEditorForm = new ColorEditingForm();
+                colorEditorForm.Show();
+                Info.colorEditingFormIsShown = true;
             }
         }
 
         private void bwButton_Click(object sender, EventArgs e)
         {
-            Info.newPhoto.Photo = painter.transformColorToBW();
-            newPhoto.setPhoto(Info.newPhoto.Photo);
+            Bitmap editedBM = new Bitmap(Info.newPhoto.Photo);
+            Painter.transformColorToBW(ref editedBM);
+            Info.newPhoto.Photo = editedBM;
+            newPhotoForm.setPhoto(Info.newPhoto.Photo);
         }
 
         private void removeButton_Click(object sender, EventArgs e)
         {
             Info.newPhoto.Photo = Info.originalPhoto.Photo;
-            newPhoto.setPhoto(Info.newPhoto.Photo);
+            newPhotoForm.setPhoto(Info.newPhoto.Photo);
         }
 
         private void exitButton_Click(object sender, EventArgs e)
@@ -159,16 +174,5 @@ namespace PhotoEditor
             }
         }
 
-        public void transparancyChange()
-        {
-            this.painter.changeTransparancy(colorEditorForm.getTrancparancyPosition());
-            newPhoto.setPhoto(Info.newPhoto.Photo);
-            return;
-        }
-
-        private void colorEditionButton_Click(object sender, EventArgs e)
-        {
-            colorEditorForm = new ColorEditingForm();
-        }
     }
 }

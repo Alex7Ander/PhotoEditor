@@ -8,6 +8,7 @@ namespace PhotoEditor
 {
     static class Program
     {
+        public static MainForm MainForm;
         /// <summary>
         /// Главная точка входа для приложения.
         /// </summary>
@@ -16,7 +17,8 @@ namespace PhotoEditor
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+            Program.MainForm = new MainForm();
+            Application.Run(Program.MainForm); // А было Application.Run(new MainForm());
         }
     }
 }
