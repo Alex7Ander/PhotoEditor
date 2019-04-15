@@ -7,7 +7,7 @@ using System.Drawing;
 
 namespace PhotoEditor
 {
-    class Resizer
+    class FormResizer
     {
         public int getSizeX(int currentSizeX, int coefficient)
         {

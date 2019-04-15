@@ -92,7 +92,7 @@ namespace PhotoEditor
 
         private void originPictureButton_Click(object sender, EventArgs e)
         {
-            if (Info.originalPhotoFormIsShown == false)
+            if (Info.originalPhotoFormIsShown)
             {
                 originalPhotoForm.Close();
                 Info.originalPhotoFormIsShown = false;
@@ -170,6 +170,7 @@ namespace PhotoEditor
                     String currentPath = Info.newPhoto.photoPath;
                     System.IO.File.Delete(currentPath);
                     Info.newPhoto.Photo.Save(currentPath);
+                    Info.editingPhoto = Info.newPhoto;
                 }
             }
         }

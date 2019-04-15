@@ -17,10 +17,14 @@ namespace PhotoEditor
     public static class Info
     {
         public static photo originalPhoto;
+        public static photo editingPhoto;
         public static photo newPhoto;
         public static bool originalPhotoFormIsShown;
         public static bool newphotoFormIsShown;
         public static bool colorEditingFormIsShown;
+
+        public static int prevContrast;
+        public static int prevBrightness;
 
         public static int transparancy;
 

@@ -31,3 +31,14 @@ C:\Users\Alex\Desktop\PE\PhotoEditor\PhotoEditor\obj\Debug\PhotoEditor.csproj.Ge
 C:\Users\Alex\Desktop\PE\PhotoEditor\PhotoEditor\obj\Debug\PhotoEditor.PhotoForm.resources
 C:\Users\Alex\Desktop\PE\PhotoEditor\PhotoEditor\bin\Debug\PhotoEditor.exe
 C:\Users\Alex\Desktop\PE\PhotoEditor\PhotoEditor\bin\Debug\PhotoEditor.pdb
+D:\my\PhotoEditor\PhotoEditor\PhotoEditor\bin\Debug\PhotoEditor.exe.config
+D:\my\PhotoEditor\PhotoEditor\PhotoEditor\obj\Debug\PhotoEditor.exe
+D:\my\PhotoEditor\PhotoEditor\PhotoEditor\obj\Debug\PhotoEditor.pdb
+D:\my\PhotoEditor\PhotoEditor\PhotoEditor\bin\Debug\PhotoEditor.exe
+D:\my\PhotoEditor\PhotoEditor\PhotoEditor\bin\Debug\PhotoEditor.pdb
+D:\my\PhotoEditor\PhotoEditor\PhotoEditor\obj\Debug\PhotoEditor.csprojResolveAssemblyReference.cache
+D:\my\PhotoEditor\PhotoEditor\PhotoEditor\obj\Debug\PhotoEditor.ColorEditingForm.resources
+D:\my\PhotoEditor\PhotoEditor\PhotoEditor\obj\Debug\PhotoEditor.MainForm.resources
+D:\my\PhotoEditor\PhotoEditor\PhotoEditor\obj\Debug\PhotoEditor.PhotoForm.resources
+D:\my\PhotoEditor\PhotoEditor\PhotoEditor\obj\Debug\PhotoEditor.Properties.Resources.resources
+D:\my\PhotoEditor\PhotoEditor\PhotoEditor\obj\Debug\PhotoEditor.csproj.GenerateResource.Cache

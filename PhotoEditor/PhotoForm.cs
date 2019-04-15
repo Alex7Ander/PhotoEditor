@@ -46,7 +46,7 @@ namespace PhotoEditor
 
         private void newPhotoForm_Shown(object sender, EventArgs e)
         {
-            Resizer resizer = new Resizer();
+            FormResizer resizer = new FormResizer();
             var width = resizer.getSizeX(Info.newPhoto.Photo.Width, 20);
             var height = resizer.getSizeY(Info.newPhoto.Photo.Height, 20);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
