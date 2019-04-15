@@ -64,6 +64,7 @@ namespace PhotoEditor
                 Info.originalPhoto.photoPath = currentPath;
                 Info.originalPhoto.Photo = new Bitmap(currentPath);
                 Info.newPhoto.Photo = new Bitmap(currentPath);
+                Info.editingPhoto.Photo = new Bitmap(currentPath);
 
                 for (int i=0; i<9; i++) buttons[i].Enabled = true;
 

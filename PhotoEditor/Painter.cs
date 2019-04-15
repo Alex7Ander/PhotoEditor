@@ -59,6 +59,15 @@ namespace PhotoEditor
                 for (int i = 0; i < trImage.Width; i++)
                 {
                     var pixel = Image.GetPixel(i, j);
+                    double factor;
+                    if (more)
+                    {
+                        factor = (1 + (float)brightness / 100);
+                    }
+                    else 
+                    {
+                        factor = (float)(100-brightness) / 100;
+                    }
                     //
                     int A = (int)pixel.A;
 
@@ -66,13 +75,13 @@ namespace PhotoEditor
                     int R = (int)pixel.R;
                     if (more)
                     {
-                        double factor = (1 + (float)brightness / 100);
+                        //double factor = (1 + (float)brightness / 100);
                         R = System.Convert.ToInt32(R * factor);
                         if (R > 255) R = 255;
                     }
                     else
                     {
-                        double factor = (float)brightness / 100;
+                        //double factor = (float)(100 - brightness) / 100;
                         R = System.Convert.ToInt32(R * factor);
                         if (R < 0) R = 255;
                     }
@@ -82,13 +91,13 @@ namespace PhotoEditor
                     int G = (int)pixel.G;
                     if (more)
                     {
-                        double factor = (1 + (float)brightness / 100);
+                        //double factor = (1 + (float)brightness / 100);
                         G = System.Convert.ToInt32(G * factor);
                         if (G > 255) G = 255;
                     }
                     else
                     {
-                        double factor = (float)brightness / 100;
+                        //double factor = (float)brightness / 100;
                         G = System.Convert.ToInt32(G * factor);
                         if (G < 0) G = 255;
                     }
@@ -98,13 +107,13 @@ namespace PhotoEditor
                     int B = (int)pixel.B;
                     if (more)
                     {
-                        double factor = (1 + (float)brightness / 100);
+                        //double factor = (1 + (float)brightness / 100);
                         B = System.Convert.ToInt32(B * factor);
                         if (B > 255) B = 255;
                     }
                     else
                     {
-                        double factor = (float)brightness / 100;
+                        //double factor = (float)brightness / 100;
                         B = System.Convert.ToInt32(B * factor);
                         if (B < 0) B = 255;
                     }
