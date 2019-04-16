@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.HeadGroupBox = new System.Windows.Forms.GroupBox();
             this.exitButton = new System.Windows.Forms.Button();
-            this.bwButton = new System.Windows.Forms.Button();
             this.colorEditionButton = new System.Windows.Forms.Button();
             this.removeButton = new System.Windows.Forms.Button();
             this.backButton = new System.Windows.Forms.Button();
@@ -46,7 +45,6 @@
             // HeadGroupBox
             // 
             this.HeadGroupBox.Controls.Add(this.exitButton);
-            this.HeadGroupBox.Controls.Add(this.bwButton);
             this.HeadGroupBox.Controls.Add(this.colorEditionButton);
             this.HeadGroupBox.Controls.Add(this.removeButton);
             this.HeadGroupBox.Controls.Add(this.backButton);
@@ -58,7 +56,7 @@
             this.HeadGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.HeadGroupBox.Location = new System.Drawing.Point(1, 1);
             this.HeadGroupBox.Name = "HeadGroupBox";
-            this.HeadGroupBox.Size = new System.Drawing.Size(869, 100);
+            this.HeadGroupBox.Size = new System.Drawing.Size(774, 100);
             this.HeadGroupBox.TabIndex = 0;
             this.HeadGroupBox.TabStop = false;
             // 
@@ -66,29 +64,18 @@
             // 
             this.exitButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("exitButton.BackgroundImage")));
             this.exitButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.exitButton.Location = new System.Drawing.Point(787, 19);
+            this.exitButton.Location = new System.Drawing.Point(688, 19);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(75, 71);
             this.exitButton.TabIndex = 9;
             this.exitButton.UseVisualStyleBackColor = true;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
-            // bwButton
-            // 
-            this.bwButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bwButton.BackgroundImage")));
-            this.bwButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.bwButton.Location = new System.Drawing.Point(610, 19);
-            this.bwButton.Name = "bwButton";
-            this.bwButton.Size = new System.Drawing.Size(75, 71);
-            this.bwButton.TabIndex = 8;
-            this.bwButton.UseVisualStyleBackColor = true;
-            this.bwButton.Click += new System.EventHandler(this.bwButton_Click);
-            // 
             // colorEditionButton
             // 
             this.colorEditionButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("colorEditionButton.BackgroundImage")));
             this.colorEditionButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.colorEditionButton.Location = new System.Drawing.Point(691, 19);
+            this.colorEditionButton.Location = new System.Drawing.Point(593, 19);
             this.colorEditionButton.Name = "colorEditionButton";
             this.colorEditionButton.Size = new System.Drawing.Size(75, 71);
             this.colorEditionButton.TabIndex = 7;
@@ -115,6 +102,7 @@
             this.backButton.Size = new System.Drawing.Size(75, 71);
             this.backButton.TabIndex = 5;
             this.backButton.UseVisualStyleBackColor = true;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
             // addEditionButton
             // 
@@ -176,7 +164,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(874, 103);
+            this.ClientSize = new System.Drawing.Size(779, 103);
             this.Controls.Add(this.HeadGroupBox);
             this.Name = "MainForm";
             this.Text = "Photo editor";
@@ -198,7 +186,6 @@
         private System.Windows.Forms.Button addEditionButton;
         private System.Windows.Forms.Button colorEditionButton;
         private System.Windows.Forms.Button exitButton;
-        private System.Windows.Forms.Button bwButton;
     }
 }
 

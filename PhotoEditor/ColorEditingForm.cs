@@ -23,6 +23,12 @@ namespace PhotoEditor
             this.contrastTextBox.Text = Info.prevContrast.ToString();
         }
         //************************************************
+        private void errorMessage(string msg)
+        {
+            MessageBox.Show("Ошибка", msg, MessageBoxButtons.OK, MessageBoxIcon.Error, 
+                            MessageBoxDefaultButton.Button1, MessageBoxOptions.ServiceNotification);
+        }
+        //************************************************
         private void editTransperency(int percentValue)
         {
             Info.transparancy = transparancyTrackBar.Value;
@@ -57,7 +63,22 @@ namespace PhotoEditor
         //************************************************
         private void editContrast(int percentValue)
         {
-            //
+            if (percentValue != 0)
+            {
+                Bitmap editedBM = new Bitmap(Info.newPhoto.Photo);
+                if (percentValue > 0)
+                    Painter.changeContrast(ref editedBM, percentValue, true);
+                else
+                    Painter.changeContrast(ref editedBM, percentValue * (-1), false);
+
+                Info.editingPhoto.Photo = editedBM;
+                Program.MainForm.newPhotoForm.setPhoto(editedBM);
+            }
+            else
+            {
+                Info.editingPhoto = Info.newPhoto;
+                Program.MainForm.newPhotoForm.setPhoto(Info.newPhoto.Photo);
+            }
             Info.prevContrast = percentValue;
             return;
         }
@@ -87,19 +108,11 @@ namespace PhotoEditor
                 }
                 catch (FormatException)
                 {
-                    MessageBox.Show("Ошибка", "Введенное вами значение не является действительным числом",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Error,
-                                MessageBoxDefaultButton.Button1,
-                                MessageBoxOptions.ServiceNotification);
+                    errorMessage("Введенное вами значение не является действительным числом");
                 }
                 catch (OverflowException)
                 {
-                    MessageBox.Show("Ошибка", "Введенное вами число должно быть в диапазоне от -100 до 100",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Error,
-                                MessageBoxDefaultButton.Button1,
-                                MessageBoxOptions.ServiceNotification);
+                    errorMessage("Введенное вами число должно быть в диапазоне от 0 до 255");
                 }
             }
         }
@@ -121,11 +134,7 @@ namespace PhotoEditor
                     position = System.Convert.ToSByte(brightnessTextBox.Text);
                     if (position > 100 || position < -100)
                     {
-                        MessageBox.Show("Ошибка", "Введенное вами число должно быть в диапазоне от -100 до 100",
-                                        MessageBoxButtons.OK,
-                                        MessageBoxIcon.Error,
-                                        MessageBoxDefaultButton.Button1,
-                                        MessageBoxOptions.ServiceNotification);
+                        errorMessage("Введенное вами число должно быть в диапазоне от -100 до 100");
                     }
                     else
                     {
@@ -135,19 +144,11 @@ namespace PhotoEditor
                 }
                 catch (FormatException)
                 {
-                    MessageBox.Show("Ошибка", "Введенное вами значение не является действительным числом",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Error,
-                                MessageBoxDefaultButton.Button1,
-                                MessageBoxOptions.ServiceNotification);
+                    errorMessage("Введенное вами значение не является действительным числом");
                 }
                 catch (OverflowException)
                 {
-                    MessageBox.Show("Ошибка", "Введенное вами число должно быть в диапазоне от -100 до 100",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Error,
-                                MessageBoxDefaultButton.Button1,
-                                MessageBoxOptions.ServiceNotification);
+                    errorMessage("Введенное вами число должно быть в диапазоне от -100 до 100");
                 }
             }
         }
@@ -155,17 +156,78 @@ namespace PhotoEditor
         private void contrastTrackBar_Scroll(object sender, EventArgs e)
         {
             int position = this.contrastTrackBar.Value;
-            Bitmap editedBM = new Bitmap(Info.newPhoto.Photo);
-            int dContrast = position - Info.prevContrast;
-            if (dContrast > 0) Painter.changeContrast(ref editedBM, dContrast, true);
-            else Painter.changeContrast(ref editedBM, dContrast, false);
-            Info.newPhoto.Photo = editedBM;
-            Program.MainForm.newPhotoForm.setPhoto(Info.newPhoto.Photo);
-            Info.prevContrast = position;
+            contrastTextBox.Text = position.ToString();
+            editContrast(position);
+        }
+//Ручной ввод
+        private void contrastTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            sbyte position;
+            if (e.KeyData == Keys.Enter)
+            {
+                try
+                {
+                    position = System.Convert.ToSByte(contrastTextBox.Text);
+                    if (position > 100 || position < -100)
+                    {
+                        errorMessage("Введенное вами число должно быть в диапазоне от -100 до 100");
+                    }
+                    else
+                    {
+                        this.contrastTrackBar.Value = position;
+                        editContrast(position);
+                    }
+                }
+                catch (FormatException)
+                {
+                    errorMessage("Введенное вами значение не является действительным числом");
+                }
+                catch (OverflowException)
+                {
+                    errorMessage("Введенное вами число должно быть в диапазоне от -100 до 100");
+                }
+            }
+        }
+//Черно-белое преобразование
+        private void bwButton_Click(object sender, EventArgs e)
+        {
+            Bitmap editedBM = new Bitmap(Info.editingPhoto.Photo);
+            Painter.transformColorToBW(ref editedBM);
+            Info.editingPhoto.Photo = editedBM;
+            Program.MainForm.newPhotoForm.setPhoto(Info.editingPhoto.Photo);
+        }
+//Вращения и отображения
+        private void leftRotationButton_Click(object sender, EventArgs e)
+        {
+            Bitmap editedBM = new Bitmap(Info.editingPhoto.Photo);
+            Painter.leftRotation(ref editedBM);
+            Info.editingPhoto.Photo = editedBM;
+            Program.MainForm.newPhotoForm.setPhoto(Info.editingPhoto.Photo);
         }
 
+        private void rightRotationButton_Click(object sender, EventArgs e)
+        {
+            Bitmap editedBM = new Bitmap(Info.editingPhoto.Photo);
+            Painter.rightRotation(ref editedBM);
+            Info.editingPhoto.Photo = editedBM;
+            Program.MainForm.newPhotoForm.setPhoto(Info.editingPhoto.Photo); 
+        }
 
+        private void verticalReflButton_Click(object sender, EventArgs e)
+        {
+            Bitmap editedBM = new Bitmap(Info.editingPhoto.Photo);
+            Painter.verticalReflection(ref editedBM);
+            Info.editingPhoto.Photo = editedBM;
+            Program.MainForm.newPhotoForm.setPhoto(Info.editingPhoto.Photo);
+        }
 
+        private void horizontalReflButton_Click(object sender, EventArgs e)
+        {
+            Bitmap editedBM = new Bitmap(Info.editingPhoto.Photo);
+            Painter.horizontalReflection(ref editedBM);
+            Info.editingPhoto.Photo = editedBM;
+            Program.MainForm.newPhotoForm.setPhoto(Info.editingPhoto.Photo);
+        }
 
     }
 }

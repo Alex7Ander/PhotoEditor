@@ -29,10 +29,9 @@ namespace PhotoEditor
             buttons.Add(removeButton);
             buttons.Add(originPictureButton);
             buttons.Add(newPictureButton);
-            buttons.Add(bwButton);
             buttons.Add(colorEditionButton);
             buttons.Add(exitButton);
-            string[] ToolTipsText = new string[10] {"Открыть","Сохранить", "Добавить изменения", "Отменить", "Отменить все", "Исходное изображение", "Новое изображение", "Сделать ЧБ", "Цветовая коррекция", "Выход" };
+            string[] ToolTipsText = new string[9] {"Открыть","Сохранить", "Добавить изменения", "Отменить", "Отменить все", "Исходное изображение", "Новое изображение", "Редактирование", "Выход" };
             int step = 0;
             foreach (string str in ToolTipsText)
             {
@@ -86,6 +85,7 @@ namespace PhotoEditor
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 string currentPath = saveFileDialog1.FileName;
+                Info.newPhoto = Info.editingPhoto;
                 Info.newPhoto.Photo.Save(currentPath);
                 Info.newPhoto.photoPath = currentPath;
             }
@@ -149,7 +149,8 @@ namespace PhotoEditor
         private void removeButton_Click(object sender, EventArgs e)
         {
             Info.newPhoto.Photo = Info.originalPhoto.Photo;
-            newPhotoForm.setPhoto(Info.newPhoto.Photo);
+            Info.editingPhoto.Photo = Info.originalPhoto.Photo;
+            newPhotoForm.setPhoto(Info.editingPhoto.Photo);
         }
 
         private void exitButton_Click(object sender, EventArgs e)
@@ -160,20 +161,23 @@ namespace PhotoEditor
         private void addEditionButton_Click(object sender, EventArgs e)
         {
             //Добавить изменения к сохраненному фото
-            if (Info.newPhoto.photoPath == null)
-            {
+            if (Info.newPhoto.photoPath == null) {
                 MessageBox.Show("Новое фото необходимо предварительно сохранить", "Ошибка");
             }
-            else
-            {
-                if (Info.newPhoto.photoPath.Length != 0)
-                {
+            else{
+                if (Info.newPhoto.photoPath.Length != 0) {
                     String currentPath = Info.newPhoto.photoPath;
                     System.IO.File.Delete(currentPath);
-                    Info.newPhoto.Photo.Save(currentPath);
-                    Info.editingPhoto = Info.newPhoto;
+                    Info.newPhoto.Photo = Info.editingPhoto.Photo;
+                    Info.newPhoto.Photo.Save(currentPath);                    
                 }
             }
+        }
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            Info.editingPhoto.Photo = Info.newPhoto.Photo;
+            newPhotoForm.setPhoto(Info.editingPhoto.Photo);
         }
 
     }
